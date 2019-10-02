@@ -23,21 +23,21 @@ use strict;
 use warnings;
 
 sub basics() {
-    s/\@copyright{}/&copy;/g;
-    s/\@dots{}/... /g;
-    s/La\@TeX{}/LaTeX/g;
-    s/\@var{(.*?)}/<$1>/g;
-    s/\@samp{(.*?)}/'$1'/g;
-    s/\@(?:code|command|file|option){(.*?)}/`$1`/g;
-    s/\@(?:emph|dfn){(.*?)}/_$1_/g;
+    s/\@copyright\{}/&copy;/g;
+    s/\@dots\{}/... /g;
+    s/La\@TeX\{}/LaTeX/g;
+    s/\@var\{(.*?)}/<$1>/g;
+    s/\@samp\{(.*?)}/'$1'/g;
+    s/\@(?:code|command|file|option)\{(.*?)}/`$1`/g;
+    s/\@(?:emph|dfn)\{(.*?)}/_$1_/g;
     s/\@\././g;
     s/\@:/:/g;
     if (!/^    /) {
-	s/\@(?:url|uref){(.*?)}/<<$1>>/g;
+	s/\@(?:url|uref)\{(.*?)}/<<$1>>/g;
 	s/``/&ldquo;/g;
 	s/''/&rdquo;/g;
     } else {
-	s/\@(?:url|uref){(.*?)}/<$1>/g;
+	s/\@(?:url|uref)\{(.*?)}/<$1>/g;
 	s/``/"/g;
 	s/''/"/g;
     }
